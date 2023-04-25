@@ -18,8 +18,8 @@ function App() {
           <CssBaseline />
           <Routes>
             <Route path="/" element={<LoginPage />} />
-            <Route path="home" element={<HomePage />} />
-            <Route path="profile/:userid" element={<ProfilePage />} />
+            <Route path="/home" element={<HomePage />} />
+            <Route path="/profile/:userid" element={<ProfilePage />} />
           </Routes>
         </ThemeProvider>
       </BrowserRouter>

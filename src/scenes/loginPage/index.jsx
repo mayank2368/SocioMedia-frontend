@@ -1,7 +1,13 @@
+import { Box } from "@mui/material";
 import React from "react";
+import Navbar from "scenes/navbar";
 
 const loginPage = () => {
-  return <div className="homepage">Login Page</div>;
+  return (
+    <Box>
+      <Navbar />
+    </Box>
+  );
 };
 
 export default loginPage;
