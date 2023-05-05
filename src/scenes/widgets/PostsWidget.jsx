@@ -1,6 +1,6 @@
 import { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import state, { setPosts } from "state";
+import { useDispatch, useSelector } from "react-redux";
+import { setPosts } from "state";
 import PostWidget from "./PostWidget";
 
 const PostsWidget = ({ userId, isProfile = false }) => {
@@ -20,14 +20,12 @@ const PostsWidget = ({ userId, isProfile = false }) => {
   const getUserPosts = async () => {
     const response = await fetch(
       `http://localhost:3001/posts/${userId}/posts`,
-
       {
         method: "GET",
         headers: { Authorization: `Bearer ${token}` },
       }
     );
-
-    const data = response.json();
+    const data = await response.json();
     dispatch(setPosts({ posts: data }));
   };
 
@@ -37,7 +35,7 @@ const PostsWidget = ({ userId, isProfile = false }) => {
     } else {
       getPosts();
     }
-  }, []); //eslint-disable-line react-hooks/exhaustive-deps
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <>
